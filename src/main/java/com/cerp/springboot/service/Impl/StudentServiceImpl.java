@@ -1,7 +1,10 @@
 package com.cerp.springboot.service.Impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.cerp.springboot.exception.ResourceNotFound;
 import com.cerp.springboot.model.Student;
 import com.cerp.springboot.repository.StudentRepository;
 import com.cerp.springboot.service.StudentService;
@@ -19,6 +22,25 @@ public class StudentServiceImpl implements StudentService{
 	@Override
 	public Student saveStudent(Student student) {
 		return studentrepository.save(student);
+	}
+
+	@Override
+	public List<Student> getAllStudent() {
+		return studentrepository.findAll();
+	}
+
+	@Override
+	public Student getStudentById(int id) {
+		/*
+		 * Optional<Student> student = studentrepository.findById(id);
+		 * 
+		 * if(student.isPresent()) { return student.get(); }else { throw new
+		 * ResourceNotFound("student", "Id", id); }
+		 */
+		
+		//by using lambda expression
+		return studentrepository.findById(id).orElseThrow(()-> 
+		new ResourceNotFound("student", "Id", id));
 	}
 
 }

@@ -43,4 +43,22 @@ public class StudentServiceImpl implements StudentService{
 		new ResourceNotFound("student", "Id", id));
 	}
 
+	@Override
+	public Student updateStudent(Student student, int id) {
+		
+		//we need to check whether student with given Id is exist in DB or not
+		Student exitingstudent = studentrepository.findById(id).orElseThrow(
+				()-> new ResourceNotFound("student", "Id", "id"));
+		
+		exitingstudent.setFirstname(student.getFirstname());
+		exitingstudent.setLastname(student.getLastname());
+		exitingstudent.setMailId(student.getMailId());
+		exitingstudent.setMobileno(student.getMobileno());
+		
+		//save exiting student to DB
+		studentrepository.save(exitingstudent);
+			
+		return exitingstudent;
+	}
+
 }

@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,10 +38,17 @@ public class StudentController {
 		return studentservice.getAllStudent();
 	}
 	
-	//build update student by Id REST API
+	//build get student by Id REST API
 	//http://localhost:8080/api/student/id 
 	@GetMapping("{id}") //path variable is dynamic
 	public ResponseEntity<Student> getStudedentId(@PathVariable("id") int studentId){
 		return new ResponseEntity<Student>(studentservice.getStudentById(studentId), HttpStatus.OK);
+	}
+	
+	//build update student REST API
+	@PutMapping("{id}")
+	public ResponseEntity<Student> updateStudent(@PathVariable("id") int studentId
+			,@RequestBody Student student){
+		return new ResponseEntity<Student>(studentservice.updateStudent(student, studentId) , HttpStatus.OK);
 	}
 }

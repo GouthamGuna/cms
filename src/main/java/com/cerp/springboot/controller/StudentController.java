@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,6 +50,15 @@ public class StudentController {
 	@PutMapping("{id}")
 	public ResponseEntity<Student> updateStudent(@PathVariable("id") int studentId
 			,@RequestBody Student student){
-		return new ResponseEntity<Student>(studentservice.updateStudent(student, studentId) , HttpStatus.OK);
+		return new ResponseEntity<Student>(studentservice.updateStudent(student, studentId), HttpStatus.OK);
+	}
+	
+	//build delete student REST API
+	@DeleteMapping("{id}")
+	public ResponseEntity<String> deleteStudent(@PathVariable("id") int studentId){
+		//delete student
+		studentservice.deleteStudent(studentId);
+		
+		return new ResponseEntity<String>("Student Deleted Successfully...", HttpStatus.OK);
 	}
 }

@@ -61,4 +61,13 @@ public class StudentServiceImpl implements StudentService{
 		return exitingstudent;
 	}
 
+	@Override
+	public void deleteStudent(int id) {
+		
+		//check whether student exist in a DB or not
+		studentrepository.findById(id).orElseThrow(
+				()-> new ResourceNotFound("student", "Id", id));
+		studentrepository.deleteById(id);
+	}
+
 }

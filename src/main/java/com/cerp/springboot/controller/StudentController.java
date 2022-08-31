@@ -30,6 +30,7 @@ public class StudentController {
 	//build create student REST API
 	@PostMapping
 	public ResponseEntity<Student> savestudent(@RequestBody Student student){
+		System.out.println("Inside the Method...");
 		return new ResponseEntity<Student>(studentservice.saveStudent(student), HttpStatus.CREATED);
 	}
 

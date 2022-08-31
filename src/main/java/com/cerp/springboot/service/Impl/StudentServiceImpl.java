@@ -11,8 +11,20 @@ import com.cerp.springboot.service.StudentService;
 
 @Service
 public class StudentServiceImpl implements StudentService{
+	
+	/**
+	 *  Two type of Dependency Injection 
+	 *  	Setter_based //option parameter
+	 *  	*Constructor_based // all parameter monetary
+	 **/
 
 	private StudentRepository studentrepository;
+	
+	/**
+	 * 	Staring with Spring 4,3 if a class which is configured 
+	 *  spring bean, has only one constructor the @Autowired annotation can be
+	 *  omitted and spring will use the constructor and inject all necessary dependencies
+	 * */
 	
 	public StudentServiceImpl(StudentRepository studentrepository) {
 		super();

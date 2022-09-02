@@ -12,5 +12,5 @@ public class DemoCmsApplication {
 		SpringApplication.run(DemoCmsApplication.class, args);
 		System.out.println("Spring Boot Application Start...");
 	}
-
+	
 }

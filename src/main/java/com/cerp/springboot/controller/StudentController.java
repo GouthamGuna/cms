@@ -16,7 +16,6 @@ import com.cerp.springboot.model.Student;
 import com.cerp.springboot.service.StudentService;
 
 @RestController
-//@RequestMapping
 public class StudentController {
 	
 	private StudentService studentservice;

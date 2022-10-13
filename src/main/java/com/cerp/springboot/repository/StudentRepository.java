@@ -1,6 +1,7 @@
 package com.cerp.springboot.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.cerp.springboot.model.Student;
 
@@ -11,6 +12,7 @@ import com.cerp.springboot.model.Student;
    * By default spring data JPA made JPARepository methods transaction so
    * we no need to add @Transaction annotation in service class...
    * */
+@Repository
 public interface StudentRepository extends JpaRepository<Student, Integer>{
 
 }

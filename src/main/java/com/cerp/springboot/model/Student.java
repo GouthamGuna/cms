@@ -5,11 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Data;
 
 @Data
 @Entity
+@Table(name="student_registration")
 public class Student {
 	
 	@Id
@@ -22,10 +24,10 @@ public class Student {
 	@Column(name="last_name", nullable = false)
 	private String lastname;
 	
-	@Column(name="mailId", nullable = false)
+	@Column(unique=true)
 	private String mailId;
 	
-	@Column(name="mobileno", nullable = false)
+	@Column(unique=true)
 	private String mobileno;
 
 }

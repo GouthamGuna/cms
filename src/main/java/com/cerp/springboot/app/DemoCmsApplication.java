@@ -2,17 +2,13 @@ package com.cerp.springboot.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
-@RestController
+@EnableConfigurationProperties
+@EntityScan(basePackages = ("com.cerp.springboot.model"))
 public class DemoCmsApplication {
-	
-	@RequestMapping("/")
-	public String sayHelloWorld(){
-		return "Hello_World...";
-	}
 	
 	public static void main(String[] args) {
 		SpringApplication.run(DemoCmsApplication.class, args);

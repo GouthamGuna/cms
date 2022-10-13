@@ -2,6 +2,7 @@ package com.cerp.springboot.service.Impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cerp.springboot.exception.ResourceNotFound;
@@ -17,7 +18,7 @@ public class StudentServiceImpl implements StudentService{
 	 *  	Setter_based //option parameter
 	 *  	*Constructor_based // all parameter monetary
 	 **/
-
+	@Autowired
 	private StudentRepository studentrepository;
 	
 	/**

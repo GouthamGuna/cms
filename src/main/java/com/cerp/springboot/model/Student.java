@@ -9,20 +9,20 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Data
 @Entity
+@Data
 @Table(name="student_registration")
 public class Student {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	
-	@Column(name="first_name", nullable = false)
-	private String firstname;
+	@Column(nullable = false)
+	private String firstName;
 	
-	@Column(name="last_name", nullable = false)
-	private String lastname;
+	@Column(nullable = false)
+	private String lastName;
 	
 	@Column(unique=true)
 	private String mailId;

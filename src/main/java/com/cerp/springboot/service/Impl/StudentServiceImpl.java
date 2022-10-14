@@ -2,7 +2,6 @@ package com.cerp.springboot.service.Impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cerp.springboot.exception.ResourceNotFound;
@@ -18,7 +17,7 @@ public class StudentServiceImpl implements StudentService{
 	 *  	Setter_based //option parameter
 	 *  	*Constructor_based // all parameter monetary
 	 **/
-	@Autowired
+	
 	private StudentRepository studentrepository;
 	
 	/**
@@ -43,7 +42,7 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
-	public Student getStudentById(int id) {
+	public Student getStudentById(long id) {
 		/*
 		 * Optional<Student> student = studentrepository.findById(id);
 		 * 
@@ -57,14 +56,14 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
-	public Student updateStudent(Student student, int id) {
+	public Student updateStudent(Student student, long id) {
 		
 		//we need to check whether student with given Id is exist in DB or not
 		Student exitingstudent = studentrepository.findById(id).orElseThrow(
 				()-> new ResourceNotFound("student", "Id", "id"));
 		
-		exitingstudent.setFirstname(student.getFirstname());
-		exitingstudent.setLastname(student.getLastname());
+		exitingstudent.setFirstName(student.getFirstName());
+		exitingstudent.setLastName(student.getLastName());
 		exitingstudent.setMailId(student.getMailId());
 		exitingstudent.setMobileno(student.getMobileno());
 		
@@ -75,7 +74,7 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
-	public void deleteStudent(int id) {
+	public void deleteStudent(long id) {
 		
 		//check whether student exist in a DB or not
 		studentrepository.findById(id).orElseThrow(

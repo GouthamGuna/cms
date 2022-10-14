@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "16f6da46-b979-4d5f-a3a2-c7ffd3714420",
+		"name": "test_cms_demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "23000619-16f6da46-b979-4d5f-a3a2-c7ffd3714420"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/student",
+			"id": "9310f878-fbd1-48f9-a45a-91df67c9e385",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"goutham\",\r\n    \"lastName\": \"sankar\",\r\n    \"mailId\": \"gmsk@gmail.com\",\r\n    \"mobileno\": \"1234567890\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/students/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"students",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/allstudentlist",
+			"id": "8573dacd-71e7-4756-9bfd-146c5152b30b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"1\",\r\n  \"firstName\": \"goutham\",\r\n  \"lastName\": \"sankar\",\r\n  \"mailId\": \"gmsk@gmail.com\",\r\n  \"mobileno\": \"1234567890\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/allstudentlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"allstudentlist"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "cerp@123",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "dd5e4ec9-cdc1-4ddd-bf06-8b91b2bdc6eb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d8469884-4990-47da-a8e2-52a64353318c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

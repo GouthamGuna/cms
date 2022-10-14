@@ -70,6 +70,31 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "http://localhost:8080/students/api/1",
+			"id": "b0abbfae-979f-40f1-8718-c0e3452a6664",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/students/api/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"students",
+						"api",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
